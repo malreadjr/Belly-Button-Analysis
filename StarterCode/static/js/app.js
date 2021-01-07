@@ -34,6 +34,49 @@ function optionChanged(selectValue) {
   metaDataElement.innerHTML += "<p>bbtype:  " + bbtype + "</p>";
   metaDataElement.innerHTML += "<p>location: " + location + "</p>";
   metaDataElement.innerHTML += "<p>wfreq:  " + wfreq + "</p>";
+    
+  var selectedbarChart = data["samples"].find(
+    (i) => i.id === (selectValue)
+  );
+  // console.log(selectedbarChart.sample_values.slice(0,10).reverse())
+ 
+  const yvalues = selectedbarChart.otu_ids.map(eachValue => {
+    return `OUID${eachValue}`
+})
+  var chart = [
+    {
+      x: selectedbarChart.sample_values.slice(0,10).reverse(),
+      y: yvalues.slice(0,10).reverse(),
+      type: 'bar',
+      orientation: 'h'
+    }
+  ];
+  
+  Plotly.newPlot('bar', chart);
+
+
+  var trace1 = {
+    x: selectedbarChart.otu_ids,
+    y: selectedbarChart.sample_values,
+    text: selectedbarChart.otu_labels,
+    mode: 'markers',
+    marker: {
+      color: selectedbarChart.otu_ids,
+      size: selectedbarChart.sample_values
+    }
+  };
+  
+  var bubble2 = [trace1];
+  
+  var layout = {
+    title: 'Bubble Chart Hover Text',
+    showlegend: false,
+    height: 600,
+    width: 1000
+  };
+  
+  Plotly.newPlot('bubble', bubble2, layout);
+
 }
 
 function getKeyByValue(object, value) {
@@ -41,38 +84,3 @@ function getKeyByValue(object, value) {
 };
 
 
-
-var data = [
-  {
-    x: ['giraffes', 'orangutans', 'monkeys'],
-    y: [20, 14, 23],
-    type: 'bar',
-    orientation: 'h'
-  }
-];
-
-Plotly.newPlot('bar', data);
-
-
-
-var trace1 = {
-  x: data.map(row => row.otu_ids),
-  y: data.map(row => row.sample_values),
-  text: data.map(row => row.otu_),
-  mode: 'markers',
-  marker: {
-    color: data.map(row => row.otu_ids),
-    size: data.map(row => row.sample_values)
-  }
-};
-
-var data = [trace1];
-
-var layout = {
-  title: 'Bubble Chart Hover Text',
-  showlegend: false,
-  height: 600,
-  width: 600
-};
-
-Plotly.newPlot('bubble', data, layout);
