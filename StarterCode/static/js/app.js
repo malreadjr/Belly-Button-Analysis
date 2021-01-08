@@ -41,13 +41,14 @@ function optionChanged(selectValue) {
   // console.log(selectedbarChart.sample_values.slice(0,10).reverse())
  
   const yvalues = selectedbarChart.otu_ids.map(eachValue => {
-    return `OUID${eachValue}`
+    return `OTU ${eachValue}`
 })
   var chart = [
     {
       x: selectedbarChart.sample_values.slice(0,10).reverse(),
       y: yvalues.slice(0,10).reverse(),
       type: 'bar',
+      text: selectedbarChart.otu_labels,
       orientation: 'h'
     }
   ];
@@ -69,7 +70,7 @@ function optionChanged(selectValue) {
   var bubble2 = [trace1];
   
   var layout = {
-    title: 'Bubble Chart Hover Text',
+    title: ' Belly Button Bubble Chart',
     showlegend: false,
     height: 600,
     width: 1000
