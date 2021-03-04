@@ -1,7 +1,8 @@
 # Belly-Button-Analysis
 The work performed in this assignment dealt with amounts of microbial species i.e. bacteria present in patients belly buttons that were tested.  Multiple tools including Plotly were used to display the data.
 
-Bacteria by filterforge.com
+![image](https://user-images.githubusercontent.com/69222103/109903900-6fdc0580-7c6a-11eb-8d28-a5ca5a1b291c.png)
+
 
 In this assignment, you will build an interactive dashboard to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/), which catalogs the microbes that colonize human navels.
 
