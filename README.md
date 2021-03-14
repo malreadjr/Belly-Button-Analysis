@@ -44,7 +44,3 @@ The dataset reveals that a small handful of microbial species (also called opera
 ![hw](Images/hw03.png)
 
 6. Update all of the plots any time that a new sample is selected.
-
-Additionally, you are welcome to create any layout that you would like for your dashboard. An example dashboard is shown below:
-
-![image](https://user-images.githubusercontent.com/69222103/109904036-a0bc3a80-7c6a-11eb-8d7a-1c0b926916bd.png)
